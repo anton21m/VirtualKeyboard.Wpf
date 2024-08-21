@@ -8,7 +8,7 @@
     <OutputType>library</OutputType>
     <RootNamespace>VirtualKeyboard.Wpf</RootNamespace>
     <AssemblyName>VirtualKeyboard.Wpf</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -55,11 +55,15 @@
     <Compile Include="DefaultKeyboardHost.xaml.cs">
       <DependentUpon>DefaultKeyboardHost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Types\KeyboardLang.cs" />
     <Compile Include="Types\KeyboardType.cs" />
     <Compile Include="Types\UppercaseMode.cs" />
     <Compile Include="ViewModels\VirtualKeyboardViewModel.cs" />
-    <Compile Include="Views\AlphabetView.xaml.cs">
-      <DependentUpon>AlphabetView.xaml</DependentUpon>
+    <Compile Include="Views\AlphabetRusView.xaml.cs">
+      <DependentUpon>AlphabetRusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlphabetEnView.xaml.cs">
+      <DependentUpon>AlphabetEnView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\KeyboardValueView.xaml.cs">
       <DependentUpon>KeyboardValueView.xaml</DependentUpon>
@@ -83,7 +87,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AlphabetView.xaml">
+    <Page Include="Views\AlphabetRusView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AlphabetEnView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

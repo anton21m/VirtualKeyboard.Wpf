@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace VirtualKeyboard.Wpf.Types
 {
-    enum KeyboardType
+    enum KeyboardLang
     {
         AlphabetRus,
         AlphabetEn,
-        Special
     }
 }

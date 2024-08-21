@@ -28,6 +28,17 @@ namespace VirtualKeyboard.Wpf.ViewModels
                 NotifyPropertyChanged(nameof(KeyboardType));
             }
         }
+        private KeyboardLang _keyboardLang;
+        public KeyboardLang KeyboardLang
+        {
+            get => _keyboardLang;
+            private set
+            {
+                _keyboardLang = value;
+                NotifyPropertyChanged(nameof(KeyboardLang));
+            }
+        }
+
         private bool _uppercase;
         public bool Uppercase
         {
@@ -64,12 +75,14 @@ namespace VirtualKeyboard.Wpf.ViewModels
         public Command ChangeCasing { get; }
         public Command RemoveCharacter { get; }
         public Command ChangeKeyboardType { get; }
+
+        public Command ChangeKeyboardLang { get; }
         public Command Accept { get; }
 
         public VirtualKeyboardViewModel(string initialValue)
         {
             _keyboardText = initialValue;
-            _keyboardType = KeyboardType.Alphabet;
+            _keyboardType = KeyboardType.AlphabetEn;
             _uppercase = false;
             CaretPosition = _keyboardText.Length;
 
@@ -113,8 +126,22 @@ namespace VirtualKeyboard.Wpf.ViewModels
             });
             ChangeKeyboardType = new Command(a =>
             {
-                if (KeyboardType == KeyboardType.Alphabet) KeyboardType = KeyboardType.Special;
-                else KeyboardType = KeyboardType.Alphabet;
+                if (KeyboardType == KeyboardType.AlphabetEn || KeyboardType == KeyboardType.AlphabetRus)
+                    KeyboardType = KeyboardType.Special;  
+                else 
+                    KeyboardType = (KeyboardType)KeyboardLang; // convert type 
+            });
+            ChangeKeyboardLang = new Command(a =>
+            {
+                if (KeyboardLang == KeyboardLang.AlphabetEn)
+                {
+                    KeyboardLang = KeyboardLang.AlphabetRus;
+                    KeyboardType = KeyboardType.AlphabetRus;
+                } else
+                {
+                    KeyboardLang = KeyboardLang.AlphabetEn;
+                    KeyboardType = KeyboardType.AlphabetEn;
+                }
             });
             Accept = new Command(a => VKeyboard.Close());
         }

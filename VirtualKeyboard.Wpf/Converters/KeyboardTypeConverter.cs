@@ -17,7 +17,8 @@ namespace VirtualKeyboard.Wpf.Converters
             var type = (KeyboardType)value;
             switch (type)
             {
-                case KeyboardType.Alphabet: return new AlphabetView();
+                case KeyboardType.AlphabetRus: return new AlphabetRusView();
+                case KeyboardType.AlphabetEn: return new AlphabetEnView();
                 case KeyboardType.Special: return new SpecialCharactersView();
             }
             return null;

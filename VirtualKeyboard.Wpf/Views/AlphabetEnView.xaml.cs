@@ -18,9 +18,9 @@ namespace VirtualKeyboard.Wpf.Views
     /// <summary>
     /// Logika interakcji dla klasy AlphabetView.xaml
     /// </summary>
-    partial class AlphabetView : UserControl
+    partial class AlphabetEnView : UserControl
     {
-        public AlphabetView()
+        public AlphabetEnView()
         {
             InitializeComponent();
         }
